@@ -1,8 +1,10 @@
 <script >
   import data from './assets/movies.js';
   import Navbar from "./components/Navbar.vue";
-  // import Modal from "./components/Modal.vue";
+  import Modal from "./components/Modal.vue";
   import Event from "./components/Event.vue";
+  import Movie from "./components/Movies.vue";
+  import SearchBar from "./components/SearchBar.vue";
   export default {
     name: 'App',
     methods:{
@@ -21,8 +23,10 @@
     },
     components:{
       Navbar: Navbar,
-      // Modal: Modal,
+      Modal: Modal,
       Event: Event,
+      Movie: Movie,
+      SearchBar: SearchBar,
     }
 
   }
@@ -32,25 +36,17 @@
 <template>
   <Navbar/>
   <Event :text = "text" />
-  <h1>영화정보</h1>
-  <div v-for="(movie, i) in data" :key="i" class="item">
-    <figure>
-        <img :src="`${movie.imgUrl}`" :alt="movie.title">
-    </figure>
-    <div class="info">
-      <h3 class="bg-yellow" :style="movie.textColor">
-        {{movie.title}}
-      </h3>
-      <p>개봉: {{movie.year}} </p>
-      <P>장르: {{movie.category}}</P>
-      <button @:click="increaseLikes(i)">좋아요</button>
-      <span>{{movie.like}}</span>
-      <p>
-        <button @:click="isModal=true; selectedMovie=i">상세보기</button>
-      </p>
-    </div>
-  </div>
-<!--  <Modal />-->
+  <SearchBar />
+  <Movie
+      :data="data"
+      @openModal="isModal = true; selectedMovie=$event"
+      @increaseLikes="increaseLikes"/>
+  <Modal
+      :data="data"
+      :isModal="isModal"
+      :selectedMovie="selectedMovie"
+      @closeModal="isModal=false"
+    />
 </template>
 
 <style >

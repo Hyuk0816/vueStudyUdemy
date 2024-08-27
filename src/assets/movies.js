@@ -5,7 +5,7 @@ const data = [
         category: "코미디, 액션",
         textColor : "color: red",
         like:0,
-        imgUrl:'/assets/3일의휴가.jpg'
+        imgUrl:'public/assets/3일의휴가.jpg'
     },
     {
         title: "에일리언 로물루수",
@@ -13,7 +13,7 @@ const data = [
         category: "SF",
         textColor: "color: green",
         like:0,
-        imgUrl:'/assets/노량.jpg'
+        imgUrl:'public/assets/노량.jpg'
     },
     {
         title: "임영웅",
@@ -21,7 +21,7 @@ const data = [
         category: "다큐멘터리",
         textColor: "color: blue",
         like:0,
-        imgUrl:'/assets/아쿠아맨.jpg'
+        imgUrl:'public/assets/아쿠아맨.jpg'
     }
 ]
 export default data;
