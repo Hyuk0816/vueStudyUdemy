@@ -2,7 +2,7 @@
 <template>
   <div class="search-box">
     <input type="search"
-           v-model="inputText"
+           @change="inputText = $event.target.value"
            placeholder="검색어 입력"
     >
     <button>검색</button>
